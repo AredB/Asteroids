@@ -3,6 +3,7 @@ import random
 
 from constants import *
 from circleshape import *
+from explosion import *
 
 class Asteroid(CircleShape):
     containers = ()
@@ -18,6 +19,7 @@ class Asteroid(CircleShape):
         self.position += displacement
     
     def split(self):
+        Explosion(self.position)
         self.kill()
 
         if self.radius <= ASTEROID_MIN_RADIUS:
